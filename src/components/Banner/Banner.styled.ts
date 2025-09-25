@@ -38,6 +38,7 @@ export const BannerText = styled.div`
   h1 {
     font-size: 2.5rem;
     color: black;
+    margin-top: 20px;
   }
   p {
     font-size: 1.1rem;
@@ -78,6 +79,7 @@ export const BannerText = styled.div`
   @media screen and (min-width: 768px) {
     h1 {
       font-size: 2.8rem;
+      margin-top: 0px;
     }
     p {
       font-size: 1.2rem;

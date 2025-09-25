@@ -14,6 +14,7 @@ export const HeaderContainer = styled.header`
   h1 {
     cursor: pointer;
     font-size: 1.5rem;
+    
   }
 
   @media screen and (min-width: 768px) {
@@ -146,6 +147,11 @@ export const Inputs = styled.div`
       cursor: pointer;
       border: none;
       background: transparent;
+    }
+
+    .cart{
+      position: relative;
+      left: 10px;
     }
   }
 

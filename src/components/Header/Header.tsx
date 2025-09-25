@@ -35,7 +35,7 @@ function Header() {
       <Inputs>
         <input type="text" placeholder="Digite um produto..." />
         <button className="search"><Search/></button>
-        <button><ShoppingCart/></button>
+        <button className="cart"><ShoppingCart/></button>
       </Inputs>
     </HeaderContainer>
   );
