@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const BannerContainer = styled.section`
   width: 100%;
   background-color: #e8e3dc;
-  height: 88vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: space-evenly;

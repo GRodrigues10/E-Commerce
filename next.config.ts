@@ -6,7 +6,9 @@ const nextConfig: NextConfig = {
       "png.pngtree.com",
       "webp.webptree.com",
       "cdn.dummyjson.com",
-      "img.freepik.com", 
+      "img.freepik.com",
+      "fakestoreapi.com",
+       "randomuser.me",
     ],
   },
 };

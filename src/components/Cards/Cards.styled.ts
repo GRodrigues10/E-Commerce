@@ -1,24 +1,48 @@
 import styled from "styled-components";
 
 export const CardContainer = styled.div`
-  width: 380px;
-  height: 500px;
+  padding-top: 25px;
+  width: 374px;
+  height: 525px;
+  flex-shrink: 0;
   background-color: #F9F9F9;
-  /* background-color: black; */
   border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: box-shadow 0.5s ease, transform 0.5s ease;
 
+  &:hover {
+    /* Sem scale, só aumenta a sombra */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    transform: translateY(-2px); /* leve elevação, sem empurrar cards */
+  }
 
-  @media screen and (min-width: 1200px){
+  @media screen and (min-width: 1200px) {
     margin-left: 5px;
   }
 `;
 
+export const ContainerInfo = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* centraliza verticalmente estrelas e preço */
+  margin-top: 10px;
+
+  .price {
+    font-weight: bold;
+    font-size: 1.4rem;
+  }
+`;
+
+
+
 export const ContainerStars = styled.div`
-margin-top: 10px;
+
   display: flex;
   align-items: center; // alinha verticalmente estrelas e texto
   gap: 4px; // espaço entre estrelas e texto

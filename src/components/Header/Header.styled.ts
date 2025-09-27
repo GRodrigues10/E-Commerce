@@ -10,6 +10,8 @@ export const HeaderContainer = styled.header`
   align-items: center;
   justify-content: space-between;
   padding-inline: 20px;
+  position: fixed;
+  z-index: 10000;
 
   h1 {
     cursor: pointer;

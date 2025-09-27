@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const BestSellersContainer = styled.section`
+ scroll-margin-top: 80px; 
+
   width: 100%;
   min-height: 100vh;
   padding: 25px 0px;
@@ -35,6 +37,8 @@ export const BestSellersContainer = styled.section`
 
 export const BestSellersWrapper = styled.div`
   width: 100%;
+  padding: 20px 0;
+
   overflow-x: auto; 
   position: relative;
   display: flex;

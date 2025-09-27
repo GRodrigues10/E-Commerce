@@ -6,6 +6,7 @@ interface ArrowProps {
 }
 
 export const TrendingContainer = styled.section`
+ scroll-margin-top: 80px; 
   width: 100%;
   min-height: 100vh;
   background-color: white;
@@ -43,9 +44,11 @@ export const TrendingContainer = styled.section`
 `;
 
 export const TrendingCardsWrapper = styled.div`
+
   width: 100%;
   overflow-x: auto;
-  overflow-y: hidden;
+overflow-y: hidden;
+  padding: 20px 0;
   display: flex;
   align-items: center; /* centraliza verticalmente */
   justify-content: flex-start;
@@ -66,7 +69,7 @@ export const TrendingCardsContainer = styled.div`
   justify-content: flex-start;
   gap: 30px;
   flex-wrap: nowrap;
-  transition: all 0.3s ease;
+  transition: 0.3s ease;
 
   > * {
     flex: 0 0 330px;
@@ -75,7 +78,7 @@ export const TrendingCardsContainer = styled.div`
 
   @media screen and (min-width: 530px) {
     > * {
-      flex: 0 0 380px;
+      flex: 0 0 374px;
     }
   }
 

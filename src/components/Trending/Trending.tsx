@@ -1,5 +1,5 @@
 // Trending.tsx
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   TrendingCardsWrapper,
   TrendingCardsContainer,
@@ -12,6 +12,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const Trending: React.FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const [trendingProducts, setTrendingProducts] = useState<any[]>([]);
 
   const scrollCards = (direction: "left" | "right") => {
     if (!containerRef.current) return;
@@ -22,8 +23,21 @@ const Trending: React.FC = () => {
     });
   };
 
+  // Buscar produtos em alta
+useEffect(() => {
+  fetch("https://fakestoreapi.com/products?limit=20")
+    .then((res) => res.json())
+    .then((data) => {
+      const electronics = data.filter((p: any) => p.category === "electronics").slice(0, 10);
+      const others = data.filter((p: any) => p.category !== "electronics").slice(0, 5);
+      
+      const mixedProducts = [...electronics, ...others]; // mistura eletrônicos e outros
+      setTrendingProducts(mixedProducts);
+    });
+}, []);
+
   return (
-    <TrendingContainer>
+    <TrendingContainer id="trending">
       <h2>Em Alta</h2>
 
       <CarouselContainer>
@@ -36,12 +50,8 @@ const Trending: React.FC = () => {
 
         <TrendingCardsWrapper ref={containerRef}>
           <TrendingCardsContainer>
-            <Cards />
-            <Cards />
-            <Cards />
-            <Cards />
-            <Cards />
-            <Cards />
+            {/* Passando os produtos para o Cards */}
+            <Cards products={trendingProducts} />
           </TrendingCardsContainer>
         </TrendingCardsWrapper>
       </CarouselContainer>

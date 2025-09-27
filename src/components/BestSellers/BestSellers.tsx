@@ -1,5 +1,5 @@
 // BestSellers.tsx
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import {
   BestSellersContainer,
   BestSellersWrapper,
@@ -12,7 +12,9 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const BestSellers: React.FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const [bestSellers, setBestSellers] = useState<any[]>([]);
 
+  // Função de scroll
   const scrollCards = (direction: "left" | "right") => {
     if (!containerRef.current) return;
     const scrollAmount = 300;
@@ -22,8 +24,15 @@ const BestSellers: React.FC = () => {
     });
   };
 
+  // Buscar produtos
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products")
+      .then(res => res.json())
+      .then(data => setBestSellers(data.slice(0, 8))); // por exemplo, os 8 mais vendidos
+  }, []);
+
   return (
-    <BestSellersContainer>
+    <BestSellersContainer id="bestsellers">
       <h2>Mais Vendidos</h2>
 
       <CarouselContainer>
@@ -38,12 +47,8 @@ const BestSellers: React.FC = () => {
         {/* Wrapper que rola */}
         <BestSellersWrapper ref={containerRef}>
           <BestSellersCardsContainer>
-            <Cards />
-            <Cards />
-            <Cards />
-            <Cards />
-            <Cards />
-            <Cards />
+            {/* Passando os produtos para o componente Cards */}
+            <Cards products={bestSellers} />
           </BestSellersCardsContainer>
         </BestSellersWrapper>
       </CarouselContainer>

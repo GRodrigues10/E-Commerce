@@ -12,7 +12,7 @@ import Link from "next/link";
 
 function Header() {
   return (
-    <HeaderContainer>
+    <HeaderContainer id="inicio">
       <h1>FullShop</h1>
 
     
@@ -20,10 +20,10 @@ function Header() {
       <WrapperDesktop>
         <DesktopMenu>
           <nav>
-            <Link href="#">Início</Link>
-            <Link href="#">Em Alta</Link>
-            <Link href="#">Mais Vendidos</Link>
-            <Link href="#">Avaliações</Link>
+            <Link href="#inicio">Início</Link>
+            <Link href="#trending">Em Alta</Link>
+            <Link href="#bestsellers">Mais Vendidos</Link>
+            <Link href="#reviews">Avaliações</Link>
           </nav>
         </DesktopMenu>
       </WrapperDesktop>

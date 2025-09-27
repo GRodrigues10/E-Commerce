@@ -6,39 +6,38 @@ interface ArrowProps {
 }
 
 export const ContainerReviews = styled.section`
+ scroll-margin-top: 80px; 
   width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
- 
+
   overflow-x: hidden;
   position: relative; /* para as setas ficarem absolutas */
 
   h2 {
-    
     font-size: 3rem;
     text-align: center;
-position: relative;
+    position: relative;
 
     @media screen and (max-width: 768px) {
       font-size: 2rem;
-      margin-bottom:0px;
+      margin-bottom: 0px;
     }
   }
 
-    @media screen and (min-width: 992px) {
-    h2{
+  @media screen and (min-width: 992px) {
+    h2 {
       position: relative;
       bottom: 40px;
     }
   }
-  
+
   @media screen and (min-width: 1200px) {
-    h2{
-      
-      bottom: 80px;
+    h2 {
+      bottom: 135px;
     }
   }
 `;
@@ -66,7 +65,6 @@ export const ContainerCards = styled.div`
 
   > * {
     flex-shrink: 0;
-  
   }
 
   scrollbar-width: none;
@@ -76,7 +74,6 @@ export const ContainerCards = styled.div`
     display: none;
   }
 `;
-
 
 export const ArrowButton = styled.button<ArrowProps>`
   position: absolute;
@@ -98,6 +95,6 @@ export const ArrowButton = styled.button<ArrowProps>`
   transition: opacity 0.3s ease, background 0.3s ease;
 
   &:hover {
-    background: rgba(0,0,0,0.7);
+    background: rgba(0, 0, 0, 0.7);
   }
 `;

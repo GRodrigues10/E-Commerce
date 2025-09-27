@@ -10,11 +10,26 @@ export const ContainerReviewsCards = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  cursor: pointer;
+  transition: .4s ease;
+  &:hover{
+    background-color: black;
+    color: white;
+  }
   img {
     border-radius: 50%;
     object-fit: cover;
     margin-top: 10px;
   }
+
+  .star-icon {
+  fill: #555555;
+  transition: fill 0.2s ease;
+}
+
+.ContainerStars:hover .star-icon {
+  fill: yellow;
+}
 `;
 
 export const ReviewCardText = styled.div`

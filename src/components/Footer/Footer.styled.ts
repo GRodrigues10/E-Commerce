@@ -6,18 +6,27 @@ export const ContainerFooter = styled.footer`
   background-color: #1f1f1f;
   color: #fff;
   padding: 60px 20px;
+  display: grid;
+ 
 
 `;
 
 export const FooterInner = styled.div`
+width: 100%;
+
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr;
   gap: 40px;
+  
+  
+
 
   @media (min-width: 768px) {
     grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+
   }
 `;
 
