@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const BannerContainer = styled.section`
   width: 100%;
   background-color: #e8e3dc;
+  padding-top: 12vh;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -22,8 +23,16 @@ export const BannerContainer = styled.section`
 
   @media screen and (min-width: 1200px) {
     img {
-      width: 500px;
-      height: 650px;
+      width: 550px;
+      height: 700px;
+      
+    }
+  }
+
+    @media screen and (min-width: 1440px) {
+    img {
+       width: 560px;
+      height: 710px;
     }
   }
 `;
@@ -119,6 +128,23 @@ export const BannerText = styled.div`
 
     button {
       font-size: 1.3rem;
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 500px;
+
+    h1 {
+      font-size: 5rem;
+    }
+    p {
+      font-size: 1.5rem;
+      max-width: 400px;
+    }
+
+    button {
+      font-size: 1.5rem;
+      padding: 12px;
     }
   }
 `;

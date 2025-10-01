@@ -25,11 +25,17 @@ const BestSellers: React.FC = () => {
   };
 
   // Buscar produtos
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then(res => res.json())
-      .then(data => setBestSellers(data.slice(0, 8))); // por exemplo, os 8 mais vendidos
-  }, []);
+useEffect(() => {
+  fetch("http://localhost:4000")
+    .then((res) => res.json())
+    .then((data) => {
+      const bestSellers = data.filter((item: any) =>
+        item.category.includes("Mais Vendidos") || item.category.includes("Mais Vendidos")
+      );
+      setBestSellers(bestSellers);
+    });
+}, []);
+
 
   return (
     <BestSellersContainer id="bestsellers">

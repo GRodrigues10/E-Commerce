@@ -6,7 +6,7 @@ interface ArrowProps {
 }
 
 export const ContainerReviews = styled.section`
- scroll-margin-top: 80px; 
+  scroll-margin-top: 80px;
   width: 100%;
   height: 100vh;
   display: flex;
@@ -18,26 +18,38 @@ export const ContainerReviews = styled.section`
   position: relative; /* para as setas ficarem absolutas */
 
   h2 {
-    font-size: 3rem;
+    font-size: 2rem;
     text-align: center;
     position: relative;
+    margin-bottom: 30px;
+    bottom: 40px;
+  }
 
-    @media screen and (max-width: 768px) {
-      font-size: 2rem;
-      margin-bottom: 0px;
+  @media screen and (min-width: 768px) {
+    h2 {
+      margin-bottom: 30px;
+      font-size: 3rem;
+      bottom: 70px;
     }
   }
 
   @media screen and (min-width: 992px) {
     h2 {
-      position: relative;
-      bottom: 40px;
+      bottom: 70px;
+      margin-bottom: 0px;
     }
   }
 
   @media screen and (min-width: 1200px) {
     h2 {
-      bottom: 135px;
+      bottom: 100px;
+    }
+  }
+
+   @media screen and (min-width: 1440px) {
+    h2 {
+      font-size: 3.5rem;
+      bottom: 140px;
     }
   }
 `;

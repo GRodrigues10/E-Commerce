@@ -7,26 +7,20 @@ export const ContainerFooter = styled.footer`
   color: #fff;
   padding: 60px 20px;
   display: grid;
- 
-
 `;
 
 export const FooterInner = styled.div`
-width: 100%;
+  width: 100%;
 
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr;
   gap: 40px;
-  
-  
-
 
   @media (min-width: 768px) {
     grid-template-columns: repeat(4, 1fr);
     justify-items: center;
-
   }
 `;
 
@@ -38,6 +32,15 @@ export const AboutUs = styled.div`
   p {
     font-size: 1rem;
     line-height: 1.5;
+  }
+
+  @media screen and (min-width: 1200px) {
+    h2 {
+      font-size: 2rem;
+    }
+    p {
+      font-size: 1.1rem;
+    }
   }
 `;
 
@@ -87,7 +90,7 @@ export const Newsletter = styled.div`
     button {
       padding: 12px 24px;
       border: none;
-      background-color: #E86A33;
+      background-color: #e86a33;
       color: white;
       font-size: 1rem;
       cursor: pointer;
@@ -95,6 +98,24 @@ export const Newsletter = styled.div`
       transition: background 0.3s;
       &:hover {
         background-color: rgba(223, 69, 69, 1);
+      }
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    h2 {
+      font-size: 2rem;
+    }
+    p {
+      font-size: 1.1rem;
+    }
+    form {
+      input {
+        font-size: 1.1rem;
+      }
+
+      button {
+        font-size: 1.1rem;
       }
     }
   }
@@ -118,6 +139,17 @@ export const SocialMedia = styled.div`
       }
     }
   }
+
+  @media screen and (min-width: 1200px) {
+    h2 {
+      font-size: 2rem;
+    }
+    .links {
+      a {
+        font-size: 2rem;
+      }
+    }
+  }
 `;
 
 export const FooterBottom = styled.div`
@@ -127,4 +159,8 @@ export const FooterBottom = styled.div`
   text-align: center;
   font-size: 0.9rem;
   color: #aaa;
+
+  @media screen and (min-width: 1200px) {
+    font-size: 1.1rem;
+  }
 `;

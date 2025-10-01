@@ -24,17 +24,17 @@ const Trending: React.FC = () => {
   };
 
   // Buscar produtos em alta
-useEffect(() => {
-  fetch("https://fakestoreapi.com/products?limit=20")
-    .then((res) => res.json())
-    .then((data) => {
-      const electronics = data.filter((p: any) => p.category === "electronics").slice(0, 10);
-      const others = data.filter((p: any) => p.category !== "electronics").slice(0, 5);
-      
-      const mixedProducts = [...electronics, ...others]; // mistura eletrônicos e outros
-      setTrendingProducts(mixedProducts);
-    });
-}, []);
+  useEffect(() => {
+    fetch("http://localhost:4000")
+      .then((res) => res.json())
+      .then((data) => {
+        const trending = data.filter(
+          (item: any) =>
+            item.category.includes("Em Alta") || item.category.includes("Alta")
+        );
+        setTrendingProducts(trending);
+      });
+  }, []);
 
   return (
     <TrendingContainer id="trending">

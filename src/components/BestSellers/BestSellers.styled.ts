@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 export const BestSellersContainer = styled.section`
- scroll-margin-top: 80px; 
-
+  scroll-margin-top: 80px;
   width: 100%;
   min-height: 100vh;
   padding: 25px 0px;
@@ -13,10 +12,10 @@ export const BestSellersContainer = styled.section`
   background-color: #e8e3dc;
   padding-top: 40px;
 
+
   h2 {
     position: relative;
-;
-   margin-bottom: 40px;
+    margin-bottom: 40px;
     font-size: 3rem;
     text-align: center;
 
@@ -26,11 +25,18 @@ export const BestSellersContainer = styled.section`
     }
   }
 
-  
+
   @media screen and (min-width: 1200px) {
-    h2{
+    h2 {
       position: relative;
-      bottom: 40px;
+      bottom: 10px;
+    }
+  }
+
+   @media screen and (min-width: 1440px) {
+    h2 {
+      font-size: 3.5rem;
+      bottom: 50px;
     }
   }
 `;
@@ -38,15 +44,16 @@ export const BestSellersContainer = styled.section`
 export const BestSellersWrapper = styled.div`
   width: 100%;
   padding: 20px 0;
+  overflow-x: auto;
 
-  overflow-x: auto; 
   position: relative;
   display: flex;
   justify-content: flex-start;
-  padding-left: 20px; 
+  padding-left: 20px;
+  padding-right: 10px;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  scrollbar-width: none; 
+  scrollbar-width: none;
   -ms-overflow-style: none;
 
   &::-webkit-scrollbar {
@@ -67,6 +74,13 @@ export const BestSellersCardsContainer = styled.div`
 
   > *:last-child {
     margin-right: 20px;
+  }
+
+  @media screen and (min-width: 1200px) {
+      > * {
+    flex: 0 0 374px;
+    
+  }
   }
 `;
 
@@ -91,7 +105,6 @@ export const ArrowButton = styled.button<{ $left?: boolean }>`
 
   &:hover {
     background: rgba(0, 0, 0, 0.7); /* hover mais escuro */
-    
   }
 `;
 

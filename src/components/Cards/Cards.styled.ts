@@ -2,10 +2,11 @@ import styled from "styled-components";
 
 export const CardContainer = styled.div`
   padding-top: 25px;
-  width: 374px;
-  height: 525px;
+  width: 330px;
+  height: 430px;
+   
   flex-shrink: 0;
-  background-color: #F9F9F9;
+  background-color: #f9f9f9;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
   display: flex;
@@ -20,8 +21,41 @@ export const CardContainer = styled.div`
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
     transform: translateY(-2px); /* leve elevação, sem empurrar cards */
   }
+  img {
+    height: 190px;
+    width: 190px;
+  }
+  @media screen and (min-width: 530px) {
+    width: 290px;
+    height: 390px;
+  
+    img {
+      width: 150px;
+      height: 150px;
+    }
+  }
 
+  @media screen and (min-width:768px) {
+   /*  */
+  }
+
+
+  @media screen and (min-width: 992px) {
+      width: 250px;
+    height: 350px; 
+
+    img{
+      height: 100px;
+      width: 100px;
+    }
+  }
   @media screen and (min-width: 1200px) {
+      width: 353px;
+    height: 500px;
+    img{
+      height: 260px;
+      width: 260px;
+    }
     margin-left: 5px;
   }
 `;
@@ -39,10 +73,7 @@ export const ContainerInfo = styled.div`
   }
 `;
 
-
-
 export const ContainerStars = styled.div`
-
   display: flex;
   align-items: center; // alinha verticalmente estrelas e texto
   gap: 4px; // espaço entre estrelas e texto
@@ -58,7 +89,6 @@ export const ContainerStars = styled.div`
     color: #555555;
   }
 `;
-
 
 export const HalfStarWrapper = styled.div`
   position: relative;
@@ -90,18 +120,19 @@ export const CardText = styled.div`
   }
 `;
 
-export const CardButton = styled.button `
-width: 90%;
-padding: 10px;
-font-size: 1rem;
-cursor: pointer ;
-background-color: #333333;
-border-radius: 8px;
-color: white;
-font-size: 1.1rem;
-transition: .4s ease;
+export const CardButton = styled.button`
+  width: 90%;
+  padding: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #333333;
+  border-radius: 8px;
+  border: none;
+  color: white;
+  font-size: 1.1rem;
+  transition: 0.4s ease;
 
-&:hover{
+  &:hover {
     background-color: #222222;
-}
-`
+  }
+`;

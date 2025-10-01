@@ -9,14 +9,16 @@ import {
 } from "./Cards.styled";
 import Image from "next/image";
 import { Star } from "lucide-react";
-
+import { formatPrice } from "@/utils/FormatPrice";
 interface Product {
-  id: number;
-  title: string;
-  price: number;
-  image: string;
-  description: string;
-  rating?: { rate: number; count: number }; // rate = nota 0-5
+  _id: string;
+  name?: string;
+  price?: number;
+  image?: string;
+  description?: string;
+  // pode ser número simples OU objeto
+  rate?: number | { rate: number; count?: number };
+  stock?:number
 }
 
 interface CardsProps {
@@ -27,27 +29,39 @@ const Cards: React.FC<CardsProps> = ({ products }) => {
   return (
     <>
       {products.map((product) => {
-        const rating = product.rating?.rate || 0;
+        // Normaliza a nota
+        const rating =
+          typeof product.rate === "number"
+            ? product.rate
+            : product.rate?.rate || 0;
+
+        const count =
+          typeof product.rate === "object" ? product.rate?.count : 0;
+
         const fullStars = Math.floor(rating);
         const hasHalfStar = rating % 1 >= 0.5;
-        const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
 
         return (
-          <CardContainer key={product.id}>
+          <CardContainer key={product._id}>
             <Image
-              src={product.image}
-              alt={product.title}
-              width={250}
+              src={product.image || "/fallback.png"}
+              alt={product.name || "Produto sem nome"}
+              width={280}
               height={280}
             />
             <CardText>
               <h3>
-                {product.title.length > 20
-                  ? product.title.slice(0, 20) + "..."
-                  : product.title}
+                {product.name?.length && product.name.length > 20
+                  ? product.name.slice(0, 20) + "..."
+                  : product.name || "Produto sem nome"}
               </h3>
               <ContainerInfo>
-                <span className="price">${product.price.toFixed(2)}</span>
+                <span className="price">
+                  R$ {" "}
+                   {product.price !== undefined
+                    ? formatPrice(product.price)
+                    : "0.00"}
+                </span>
                 <ContainerStars>
                   {/* Estrelas cheias */}
                   {Array.from({ length: fullStars }).map((_, i) => (
@@ -81,13 +95,13 @@ const Cards: React.FC<CardsProps> = ({ products }) => {
                     />
                   ))}
 
-                  <span>({product.rating?.count || 0})</span>
+                  <span>({product.stock || 0})</span>
                 </ContainerStars>
               </ContainerInfo>
               <p>
-                {product.description.length > 60
+                {product.description?.length && product.description.length > 60
                   ? product.description.slice(0, 60) + "..."
-                  : product.description}
+                  : product.description || "Sem descrição"}
               </p>
             </CardText>
             <CardButton>Adicionar</CardButton>

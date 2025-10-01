@@ -16,18 +16,16 @@ export const HeaderContainer = styled.header`
   h1 {
     cursor: pointer;
     font-size: 1.5rem;
-    
   }
 
   @media screen and (min-width: 768px) {
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
     h1 {
       font-size: 1.2rem;
     }
   }
   @media screen and (min-width: 992px) {
+    align-items: center;
+    justify-content: center;
     gap: 30px;
     h1 {
       font-size: 1.5rem;
@@ -39,30 +37,20 @@ export const HeaderContainer = styled.header`
       font-size: 2rem;
     }
   }
-`;
 
-export const MobileMenu = styled.div`
-  button {
-    font-weight: bold;
-    font-size: 1.4rem;
-    cursor: pointer;
-    border: none;
-    background-color: transparent;
-  }
-
-  @media screen and (min-width: 768px) {
-    button {
-      display: none;
+  @media screen and (min-width: 1440px) {
+    gap: 40px;
+    h1 {
+      font-size: 2.4rem;
     }
   }
 `;
-export const WrapperDesktop = styled.div`
 
-  
+
+export const WrapperDesktop = styled.div`
   display: flex;
   align-items: center;
-  gap: 40px; 
-  
+  gap: 40px;
 `;
 
 export const DesktopMenu = styled.div`
@@ -75,25 +63,17 @@ export const DesktopMenu = styled.div`
       text-decoration: none;
       color: black;
       cursor: pointer;
-       color: #3a3a3a;
-      transition: .4s ease;
-      &:hover{
+      color: #3a3a3a;
+      transition: 0.4s ease;
+      &:hover {
         color: #2c2c2c;
       }
     }
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 992px) {
     display: flex;
     align-items: center;
-
-    nav {
-      a {
-        font-size: 0.8rem;
-      }
-    }
-  }
-  @media screen and (min-width: 992px) {
     gap: 30px;
     nav {
       a {
@@ -110,13 +90,89 @@ export const DesktopMenu = styled.div`
       }
     }
   }
+
+  @media screen and (min-width: 1440px) {
+    gap: 40px;
+
+    nav {
+      a {
+        font-size: 1.4rem;
+      }
+    }
+  }
 `;
+
+export const MobileMenu = styled.div`
+  position: relative;
+  z-index: 1001; 
+
+  button {
+    font-weight: bold;
+    font-size: 1.6rem; /* aumenta tamanho do X/Hamburger */
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    width: 40px;  
+    height: 40px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media screen and (min-width: 992px) {
+    display: none;
+  }
+`;
+
+export const SideMenu = styled.div<{ open: boolean }>`
+  position: fixed;
+  top: 0;
+  right: ${({ open }) => (open ? "0" : "-250px")};
+  width: 250px;
+  height: 100%;
+  background: white;
+  box-shadow: ${({ open }) => (open ? "-2px 0 10px rgba(0,0,0,0.3)" : "none")};
+  transition: right 0.3s ease-in-out;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 60px; /* deixa X alinhado com o botão */
+    padding-left: 20px;
+
+    a {
+      text-decoration: none;
+      font-size: 1rem;
+      color: #3a3a3a;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.3s ease;
+
+      &:hover {
+        color: #2c2c2c;
+      }
+    }
+  }
+
+  @media screen and (min-width: 992px) {
+    display: none;
+  }
+`;
+
+
+
+
 
 export const Inputs = styled.div`
   display: none;
 
   @media screen and (min-width: 768px) {
-    display: flex;
+    display: none;
     align-items: center;
     gap: 12px;
     position: relative;
@@ -151,19 +207,44 @@ export const Inputs = styled.div`
       background: transparent;
     }
 
-    .cart{
+    .cart {
       position: relative;
       left: 10px;
     }
   }
 
   @media screen and (min-width: 992px) {
+    display: flex;
+
     input {
       padding: 8px;
       font-size: 1rem;
       width: 300px;
       border-radius: 5px;
       outline: none;
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    input {
+      font-size: 1.2rem;
+      width: 400px;
+      padding: 10px;
+    }
+
+    .search {
+      position: absolute;
+      right: 55px;
+      top: 10px;
+    }
+
+    .search svg {
+      width: 30px;
+    }
+
+    .cart svg {
+      width: 30px;
+      height: 30px;
     }
   }
 `;

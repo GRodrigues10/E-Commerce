@@ -2,11 +2,11 @@
 import styled from "styled-components";
 
 interface ArrowProps {
-  $left?: boolean; 
+  $left?: boolean;
 }
 
 export const TrendingContainer = styled.section`
- scroll-margin-top: 80px; 
+  scroll-margin-top: 80px;
   width: 100%;
   min-height: 100vh;
   background-color: white;
@@ -17,42 +17,53 @@ export const TrendingContainer = styled.section`
   position: relative;
   padding: 25px 0px;
 
-
   h2 {
-    
-    font-size: 3rem;
-    margin-bottom: 40px;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
 
-   
-
-    @media screen and (max-width: 768px) {
-      font-size: 2rem;
-      margin-bottom: 20px;
+  @media screen and (min-width: 768px) {
+    h2 {
+      font-size: 3rem;
+      margin-bottom: 30px;
+      margin-top: 0px;
       position: relative;
-      bottom:20px;
+      bottom: 20px;
     }
+  }
+
+  @media screen and (min-width: 992px) {
+     h2{
+      bottom: 0;
+     }
+    
   }
 
   @media screen and (min-width: 1200px) {
-    h2{
+    h2 {
       position: relative;
-      bottom: 30px;
+      bottom: 10px;
     }
   }
 
-  
+    @media screen and (min-width: 1440px) {
+    h2 {
+      font-size: 3.5rem;
+      bottom: 50px;
+    }
+  }
 `;
 
 export const TrendingCardsWrapper = styled.div`
-
   width: 100%;
   overflow-x: auto;
-overflow-y: hidden;
+  overflow-y: hidden;
   padding: 20px 0;
   display: flex;
   align-items: center; /* centraliza verticalmente */
   justify-content: flex-start;
-  padding-left: 20px; 
+  padding-right: 10px;
+  padding-left: 20px;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
@@ -76,11 +87,16 @@ export const TrendingCardsContainer = styled.div`
     min-width: 250px;
   }
 
-  @media screen and (min-width: 530px) {
-    > * {
-      flex: 0 0 374px;
-    }
+  > *:last-child {
+    margin-right: 20px;
   }
+
+  @media screen and (min-width: 1200px) {
+      > * {
+    flex: 0 0 374px;
+    
+  }
+}
 
   /* último card com margem extra */
   > *:last-child {
@@ -108,7 +124,7 @@ export const ArrowButton = styled.button<ArrowProps>`
   transition: opacity 0.3s ease, background 0.3s ease;
 
   &:hover {
-    background: rgba(0,0,0,0.7);
+    background: rgba(0, 0, 0, 0.7);
   }
 `;
 
