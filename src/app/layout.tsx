@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import StyledComponentsRegistry from "@/lib/registry";
+import Header from "@/components/Header/Header";
 
 export default function RootLayout({
   children,
@@ -10,7 +11,10 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body>
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        <StyledComponentsRegistry>
+          <Header/>
+          {children}
+          </StyledComponentsRegistry>
       </body>
     </html>
   );
