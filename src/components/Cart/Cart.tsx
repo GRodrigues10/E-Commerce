@@ -23,12 +23,14 @@ function Cart() {
           <h3>Xbox Series X</h3>
 
           {/* Tag de promoção */}
-       <div style={{ display: 'inline' }}>
-  <span className="tag-sale">Eletrônicos</span>
-</div>
+          <div style={{ display: "inline" }}>
+            <span className="tag-sale">Eletrônicos</span>
+          </div>
 
           {/* Informação de frete */}
-          <p className="shipping-info">Entrega 100% gratuita em até 3 dias úteis.</p>
+          <p className="shipping-info">
+            Entrega 100% gratuita em até 3 dias úteis.
+          </p>
 
           <h4>R$ 5.999,00</h4>
         </CartText>
@@ -36,7 +38,7 @@ function Cart() {
           <Trash2 />
           <CartInputs>
             <button className="minus">
-              <Minus />
+              <Minus  />
             </button>
             <p className="number">1</p>
             <button className="plus">

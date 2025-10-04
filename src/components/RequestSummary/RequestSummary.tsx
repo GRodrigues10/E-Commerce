@@ -10,6 +10,7 @@ import {
   Input,
   Checkout2,
 } from "./RequestSummary.styled";
+import Link from "next/link";
 
 function RequestSummary() {
   return (
@@ -34,7 +35,9 @@ function RequestSummary() {
           <button>Verificar</button>
         </Input>
         <Checkout>Comprar Agora</Checkout>
-        <Checkout2>Continuar Comprando</Checkout2>
+        <Link href='/'>
+          <Checkout2>Continuar Comprando</Checkout2>
+        </Link>
       </Part1>
 
       {/* Parte 2: Formas de Pagamento e Confiança */}

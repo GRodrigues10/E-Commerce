@@ -54,7 +54,9 @@ function Header() {
           <Search />
         </button>
         <button className="cart">
-          <ShoppingCart />
+          <Link href='/cart' style={{color:'black'}}>
+            <ShoppingCart />
+          </Link>
         </button>
       </Inputs>
     </HeaderContainer>

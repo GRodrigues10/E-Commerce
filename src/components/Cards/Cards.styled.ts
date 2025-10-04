@@ -53,8 +53,9 @@ export const CardContainer = styled.div`
       width: 353px;
     height: 500px;
     img{
-      height: 260px;
-      width: 260px;
+     height: 260px;
+     width: 260px;
+     object-fit: cover;
     }
     margin-left: 5px;
   }

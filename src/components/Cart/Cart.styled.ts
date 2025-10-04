@@ -131,10 +131,14 @@ export const CartControls = styled.div`
   }
 `;
 export const CartInputs = styled.div`
+
   display: flex;
+   width: fit-content;  
   border: 1px solid #d1d5db;
-  padding: 2px;
+  padding: 3px;
   border-radius: 5px;
+ background-color: white;
+
 
   button {
     border: none;
@@ -151,13 +155,13 @@ export const CartInputs = styled.div`
     padding: 5px;
     width: 25px;
     position: relative;
-    top: 3px;
+    top: 5px;
   }
   .minus {
     padding: 5px;
     width: 25px;
     position: relative;
-    top: 3px;
+    top: 5px;
   }
   .plus svg {
     width: 15px;

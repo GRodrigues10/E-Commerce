@@ -9,23 +9,15 @@ function page() {
   return (
     <CartContainer>
       <LayoutCart>
-
-      
-      <CartContent>
-        <h2>Meu Carrinho</h2>
-        <Button/>
-        <Cart />
-        <Cart />
-        
-      </CartContent>
-      <RequestSummary/>
-
+        <CartContent>
+          <h2>Meu Carrinho</h2>
+          <Button />
+          <Cart />
+          <Cart />
+        </CartContent>
+        <RequestSummary />
       </LayoutCart>
-
-      
     </CartContainer>
-     
-
   );
 }
 
