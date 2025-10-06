@@ -9,6 +9,7 @@ import {
 import Image from "next/image";
 import { Minus, Plus, Trash2 } from "lucide-react";
 import { useCart } from "@/context/context";
+import { formatPrice } from "@/utils/FormatPrice";
 
 function Cart() {
   const { cart, removeFromCart } = useCart();
@@ -40,7 +41,7 @@ function Cart() {
                   Entrega 100% gratuita em até 3 dias úteis.
                 </p>
 
-                <h4>R$ {product.price}</h4>
+                <h4>R$ {formatPrice(product.price ?? 0)}</h4>
               </CartText>
 
               <CartControls>

@@ -20,8 +20,10 @@ export const CartDetails = styled.div`
     transform: translateY(-2px);
   }
 
+
   width: 100%;       
   max-width: 600px;   
+
   
   @media screen and (min-width: 768px) {
     flex-direction: row;
@@ -59,7 +61,7 @@ width: 100%;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  margin-right: 60px;
+ 
 
   h3 {
     margin-top: 10px;
@@ -77,6 +79,10 @@ width: 100%;
   }
 
   @media screen and (min-width: 768px) {
+
+    .shipping-info{
+       margin-right: 60px;
+    }
     h3 {
       margin-top: 0;
     }
