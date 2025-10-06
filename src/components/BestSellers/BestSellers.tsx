@@ -9,10 +9,13 @@ import {
 } from "./BestSellers.styled";
 import Cards from "../Cards/Cards";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { fetchBestSellers } from "@/api/api";
+
 
 const BestSellers: React.FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [bestSellers, setBestSellers] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
 
   // Função de scroll
   const scrollCards = (direction: "left" | "right") => {
@@ -24,18 +27,25 @@ const BestSellers: React.FC = () => {
     });
   };
 
-  // Buscar produtos
-useEffect(() => {
-  fetch("http://localhost:4000")
-    .then((res) => res.json())
-    .then((data) => {
-      const bestSellers = data.filter((item: any) =>
-        item.category.includes("Mais Vendidos") || item.category.includes("Mais Vendidos")
-      );
-      setBestSellers(bestSellers);
-    });
-}, []);
+  const SkeletonCard: React.FC = () => (
+  <div style={{
+    maxWidth: "372px",
+    height: "500px",
+    backgroundColor: "#fff",
+    borderRadius: "8px",
+    margin: "0.5rem",
+  }} />
+);
 
+
+
+
+useEffect(() => {
+  fetchBestSellers()
+    .then((data) => setBestSellers(data))
+    .catch((err) => console.error(err))
+    .finally(() => setLoading(false)); // <<<<< aqui
+}, []);
 
   return (
     <BestSellersContainer id="bestsellers">
@@ -53,8 +63,17 @@ useEffect(() => {
         {/* Wrapper que rola */}
         <BestSellersWrapper ref={containerRef}>
           <BestSellersCardsContainer>
-            {/* Passando os produtos para o componente Cards */}
-            <Cards products={bestSellers} />
+            {loading ? (
+              // Mostra 4 skeletons enquanto carrega
+              <>
+                <SkeletonCard />
+                <SkeletonCard />
+                <SkeletonCard />
+                <SkeletonCard />
+              </>
+            ) : (
+              <Cards products={bestSellers} />
+            )}
           </BestSellersCardsContainer>
         </BestSellersWrapper>
       </CarouselContainer>

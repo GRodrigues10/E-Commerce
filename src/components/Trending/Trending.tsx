@@ -1,4 +1,3 @@
-// Trending.tsx
 import React, { useEffect, useRef, useState } from "react";
 import {
   TrendingCardsWrapper,
@@ -9,10 +8,16 @@ import {
 } from "./Trending.styled";
 import Cards from "../Cards/Cards";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { fetchTrending } from "@/api/api";
+import { SkeletonCard } from "../SkeletonCard/SkeletonCard";
+
+
+// SkeletonCard para mostrar enquanto carrega
 
 const Trending: React.FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [trendingProducts, setTrendingProducts] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true); // estado de loading
 
   const scrollCards = (direction: "left" | "right") => {
     if (!containerRef.current) return;
@@ -21,19 +26,24 @@ const Trending: React.FC = () => {
       left: direction === "left" ? -scrollAmount : scrollAmount,
       behavior: "smooth",
     });
+
+    const SkeletonCard: React.FC = () => (
+  <div style={{
+    maxWidth: "372px",
+    height: "500px",
+    backgroundColor: "#e0e0e0",
+    borderRadius: "8px",
+    margin: "0.5rem",
+  }} />
+);
+
   };
 
-  // Buscar produtos em alta
   useEffect(() => {
-    fetch("http://localhost:4000")
-      .then((res) => res.json())
-      .then((data) => {
-        const trending = data.filter(
-          (item: any) =>
-            item.category.includes("Em Alta") || item.category.includes("Alta")
-        );
-        setTrendingProducts(trending);
-      });
+    fetchTrending()
+      .then((data) => setTrendingProducts(data))
+      .catch((err) => console.error(err))
+      .finally(() => setLoading(false)); // termina o loading
   }, []);
 
   return (
@@ -50,8 +60,18 @@ const Trending: React.FC = () => {
 
         <TrendingCardsWrapper ref={containerRef}>
           <TrendingCardsContainer>
-            {/* Passando os produtos para o Cards */}
-            <Cards products={trendingProducts} />
+            {loading ? (
+              // Mostra 4 skeletons enquanto carrega
+              <>
+                <SkeletonCard />
+                <SkeletonCard />
+                <SkeletonCard />
+                <SkeletonCard />
+              </>
+            ) : (
+              // Passando os produtos para o Cards quando carregou
+              <Cards products={trendingProducts} />
+            )}
           </TrendingCardsContainer>
         </TrendingCardsWrapper>
       </CarouselContainer>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import StyledComponentsRegistry from "@/lib/registry";
 import Header from "@/components/Header/Header";
+import { CartProvider } from "@/context/context";
 
 export default function RootLayout({
   children,
@@ -12,9 +13,11 @@ export default function RootLayout({
     <html lang="pt-br">
       <body>
         <StyledComponentsRegistry>
-          <Header/>
-          {children}
-          </StyledComponentsRegistry>
+          <CartProvider>
+            <Header />
+            {children}
+          </CartProvider>
+        </StyledComponentsRegistry>
       </body>
     </html>
   );

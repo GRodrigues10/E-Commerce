@@ -11,14 +11,14 @@ export const CartContainer = styled.section`
 `;
 
 export const LayoutCart = styled.div`
-  width: 100%; /* ocupa 100% do CartContainer */
+  width: 100%; 
   max-width: 990px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  gap: 30px; /* espaço entre CartContent e RequestSummary */
-  padding: 20px; /* opcional */
+  gap: 30px; 
+  padding: 20px; 
 
   @media screen and (min-width: 992px) {
     align-items: flex-start;
@@ -31,12 +31,11 @@ export const LayoutCart = styled.div`
 
   @media screen and (min-width: 1440px) {
     max-width: 1170px;
-    gap: 0px; /* espaço entre CartContent e RequestSummary */
+    gap: 0px; 
   }
 `;
 
 export const CartContent = styled.div`
-  /* margin: 0 auto; */
   height: 100%;
   display: flex;
   flex-direction: column;

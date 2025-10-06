@@ -22,16 +22,15 @@ export const CardContainer = styled.div`
     transform: translateY(-2px); /* leve elevação, sem empurrar cards */
   }
   img {
-    height: 190px;
-    width: 190px;
+    height: 160px;
+    width: 160px;
   }
   @media screen and (min-width: 530px) {
-    width: 290px;
     height: 390px;
   
     img {
-      width: 150px;
-      height: 150px;
+      width: 120px;
+      height: 120px;
     }
   }
 
@@ -41,8 +40,8 @@ export const CardContainer = styled.div`
 
 
   @media screen and (min-width: 992px) {
-      width: 250px;
-    height: 350px; 
+      width: 320px;
+    height: 370px; 
 
     img{
       height: 100px;
@@ -53,13 +52,31 @@ export const CardContainer = styled.div`
       width: 353px;
     height: 500px;
     img{
-     height: 260px;
-     width: 260px;
+     height: 230px;
+     width: 230px;
      object-fit: cover;
     }
     margin-left: 5px;
   }
 `;
+
+export const CardCategory = styled.div `
+
+  margin-top: 12px;
+  width: 100%;
+ 
+  padding-inline: 20px;
+
+  p{
+  
+    font-size: 1.1rem;
+    font-weight: bold;
+    
+  
+  }
+
+
+`
 
 export const ContainerInfo = styled.div`
   width: 100%;

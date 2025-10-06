@@ -13,7 +13,6 @@ function page() {
           <h2>Meu Carrinho</h2>
           <Button />
           <Cart />
-          <Cart />
         </CartContent>
         <RequestSummary />
       </LayoutCart>

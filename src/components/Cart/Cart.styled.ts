@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const CartContainer = styled.section`
+margin-top: 20px;
   /*  */
   ` 
 
@@ -19,11 +20,12 @@ export const CartDetails = styled.div`
     transform: translateY(-2px);
   }
 
-  width: 100%;         /* ocupa todo o container em telas pequenas */
-  max-width: 600px;    /* não passa de 650px */
+  width: 100%;       
+  max-width: 600px;   
   
   @media screen and (min-width: 768px) {
     flex-direction: row;
+    gap: 15px;
     height: 200px;
   }
 
@@ -33,16 +35,19 @@ export const CartDetails = styled.div`
 `;
 
 export const CartText = styled.div`
+width: 100%;
+
 .tag-sale {
-  display: inline-block; /* ou inline */
-  width: auto;           /* força a largura mínima necessária */
-  /* max-width: fit-content; opcional, só para garantir */
+  display: inline-block;
+  width: auto;           
+
   background-color:#4caf50;
   color: white;
   padding: 8px;
   border-radius: 4px;
   font-size: 1rem;
   margin-bottom: 4px;
+
   
 }
 
@@ -155,13 +160,13 @@ export const CartInputs = styled.div`
     padding: 5px;
     width: 25px;
     position: relative;
-    top: 5px;
+    top: 4px;
   }
   .minus {
     padding: 5px;
     width: 25px;
     position: relative;
-    top: 5px;
+    top: 4px;
   }
   .plus svg {
     width: 15px;

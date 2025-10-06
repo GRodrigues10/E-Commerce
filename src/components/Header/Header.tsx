@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   HeaderContainer,
   DesktopMenu,
@@ -10,15 +10,32 @@ import {
 } from "./Header.styled";
 import { ShoppingCart, Search, X } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const router = useRouter();
+
+  useEffect(() => setIsClient(true), []);
+
+  const handleSearch = () => {
+    if (searchTerm.trim() !== "") {
+      router.push(`/search?q=${encodeURIComponent(searchTerm)}`);
+    }
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") handleSearch();
+  };
 
   return (
     <HeaderContainer id="inicio">
-      <h1>FullShop</h1>
+      <Link href="/" style={{ textDecoration: "none", color: "black" }}>
+        <h1>FullShop</h1>
+      </Link>
 
-      {/* Desktop Menu */}
       <WrapperDesktop>
         <DesktopMenu>
           <nav>
@@ -30,31 +47,44 @@ function Header() {
         </DesktopMenu>
       </WrapperDesktop>
 
-      {/* Botão Hamburger / X */}
       <MobileMenu>
         <button onClick={() => setMenuOpen(!menuOpen)}>
-          {menuOpen ? <X size={30}/> : "☰"}
+          {menuOpen ? <X size={30} /> : "☰"}
         </button>
       </MobileMenu>
 
-      {/* Side Menu lateral */}
-      <SideMenu open={menuOpen}>
-        <nav>
-          <Link href="#inicio" onClick={() => setMenuOpen(false)}>Início</Link>
-          <Link href="#trending" onClick={() => setMenuOpen(false)}>Em Alta</Link>
-          <Link href="#bestsellers" onClick={() => setMenuOpen(false)}>Mais Vendidos</Link>
-          <Link href="#reviews" onClick={() => setMenuOpen(false)}>Avaliações</Link>
-        </nav>
-      </SideMenu>
+      {isClient && (
+        <SideMenu open={menuOpen}>
+          <nav>
+            <Link href="#inicio" onClick={() => setMenuOpen(false)}>
+              Início
+            </Link>
+            <Link href="#trending" onClick={() => setMenuOpen(false)}>
+              Em Alta
+            </Link>
+            <Link href="#bestsellers" onClick={() => setMenuOpen(false)}>
+              Mais Vendidos
+            </Link>
+            <Link href="#reviews" onClick={() => setMenuOpen(false)}>
+              Avaliações
+            </Link>
+          </nav>
+        </SideMenu>
+      )}
 
-      {/* Inputs e carrinho */}
       <Inputs>
-        <input type="text" placeholder="Digite um produto..." />
-        <button className="search">
+        <input
+          type="text"
+          placeholder="Digite um produto..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          onKeyDown={handleKeyDown}
+        />
+        <button className="search" onClick={handleSearch}>
           <Search />
         </button>
         <button className="cart">
-          <Link href='/cart' style={{color:'black'}}>
+          <Link href="/cart" style={{ color: "black" }}>
             <ShoppingCart />
           </Link>
         </button>

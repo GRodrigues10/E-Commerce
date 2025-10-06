@@ -1,3 +1,4 @@
+'use client'
 import styled from "styled-components";
 
 export const ContainerDetails = styled.section`
@@ -60,6 +61,7 @@ export const DetailsText = styled.div`
   .product {
     font-size: 2.5rem;
     max-width: 650px;
+   text-align: center;
   }
 
   span {

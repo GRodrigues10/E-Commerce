@@ -33,7 +33,7 @@ const Reviews: React.FC = () => {
         <ContainerCards ref={containerRef}>
           <ReviewsCards
             name="Natália Lima"
-            image="https://img.freepik.com/fotos-gratis/retrato-de-uma-jovem-expressiva_1258-48167.jpg?semt=ais_hybrid&w=740&q=80"
+            image="https://randomuser.me/api/portraits/women/65.jpg"
             text="Produto incrível! Chegou super rápido e bem embalado."
             rating={4.5}
           />
