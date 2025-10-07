@@ -7,6 +7,7 @@ import {
   WrapperDesktop,
   MobileMenu,
   SideMenu,
+  InputsMobile,
 } from "./Header.styled";
 import { ShoppingCart, Search, X } from "lucide-react";
 import Link from "next/link";
@@ -36,6 +37,7 @@ function Header() {
         <h1>FullShop</h1>
       </Link>
 
+      {/* Menu Desktop */}
       <WrapperDesktop>
         <DesktopMenu>
           <nav>
@@ -45,14 +47,35 @@ function Header() {
             <Link href="#reviews">Avaliações</Link>
           </nav>
         </DesktopMenu>
+
+        {/* Inputs Desktop */}
+        <Inputs>
+          <input
+            type="text"
+            placeholder="Digite um produto..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            onKeyDown={handleKeyDown}
+          />
+          <button className="search" onClick={handleSearch}>
+            <Search />
+          </button>
+          <button className="cart">
+            <Link href="/cart" style={{ color: "black" }}>
+              <ShoppingCart />
+            </Link>
+          </button>
+        </Inputs>
       </WrapperDesktop>
 
+      {/* Menu Mobile */}
       <MobileMenu>
         <button onClick={() => setMenuOpen(!menuOpen)}>
           {menuOpen ? <X size={30} /> : "☰"}
         </button>
       </MobileMenu>
 
+      {/* SideMenu Mobile */}
       {isClient && (
         <SideMenu open={menuOpen}>
           <nav>
@@ -69,26 +92,29 @@ function Header() {
               Avaliações
             </Link>
           </nav>
+
+          {/* Inputs Mobile */}
+          <InputsMobile>
+            <input
+              type="text"
+              placeholder="Digite um produto..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              onKeyDown={handleKeyDown}
+            />
+            <button className="search" onClick={handleSearch}>
+              Buscar
+            </button>
+            <Link href="/cart" style={{ color: "black" }}>
+            <button className="cart">
+              
+                <ShoppingCart />
+            
+            </button>
+              </Link>
+          </InputsMobile>
         </SideMenu>
       )}
-
-      <Inputs>
-        <input
-          type="text"
-          placeholder="Digite um produto..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          onKeyDown={handleKeyDown}
-        />
-        <button className="search" onClick={handleSearch}>
-          <Search />
-        </button>
-        <button className="cart">
-          <Link href="/cart" style={{ color: "black" }}>
-            <ShoppingCart />
-          </Link>
-        </button>
-      </Inputs>
     </HeaderContainer>
   );
 }

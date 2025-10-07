@@ -1,4 +1,4 @@
-// Header.styled.js
+// Header.styled.ts
 import styled from "styled-components";
 
 export const HeaderContainer = styled.header`
@@ -19,33 +19,23 @@ export const HeaderContainer = styled.header`
   }
 
   @media screen and (min-width: 768px) {
-    h1 {
-      font-size: 1.2rem;
-    }
+    h1 { font-size: 1.2rem; }
   }
   @media screen and (min-width: 992px) {
     align-items: center;
     justify-content: center;
     gap: 30px;
-    h1 {
-      font-size: 1.5rem;
-    }
+    h1 { font-size: 1.5rem; }
   }
   @media screen and (min-width: 1200px) {
     gap: 40px;
-    h1 {
-      font-size: 2rem;
-    }
+    h1 { font-size: 2rem; }
   }
-
   @media screen and (min-width: 1440px) {
     gap: 40px;
-    h1 {
-      font-size: 2.4rem;
-    }
+    h1 { font-size: 2.4rem; }
   }
 `;
-
 
 export const WrapperDesktop = styled.div`
   display: flex;
@@ -61,13 +51,10 @@ export const DesktopMenu = styled.div`
 
     a {
       text-decoration: none;
-      color: black;
-      cursor: pointer;
       color: #3a3a3a;
+      cursor: pointer;
       transition: 0.4s ease;
-      &:hover {
-        color: #2c2c2c;
-      }
+      &:hover { color: #2c2c2c; }
     }
   }
 
@@ -75,30 +62,15 @@ export const DesktopMenu = styled.div`
     display: flex;
     align-items: center;
     gap: 30px;
-    nav {
-      a {
-        font-size: 1rem;
-      }
-    }
+    nav a { font-size: 1rem; }
   }
   @media screen and (min-width: 1200px) {
     gap: 40px;
-
-    nav {
-      a {
-        font-size: 1.2rem;
-      }
-    }
+    nav a { font-size: 1.2rem; }
   }
-
   @media screen and (min-width: 1440px) {
     gap: 40px;
-
-    nav {
-      a {
-        font-size: 1.4rem;
-      }
-    }
+    nav a { font-size: 1.4rem; }
   }
 `;
 
@@ -108,7 +80,7 @@ export const MobileMenu = styled.div`
 
   button {
     font-weight: bold;
-    font-size: 1.6rem; /* aumenta tamanho do X/Hamburger */
+    font-size: 1.6rem;
     cursor: pointer;
     border: none;
     background-color: transparent;
@@ -120,9 +92,7 @@ export const MobileMenu = styled.div`
     justify-content: center;
   }
 
-  @media screen and (min-width: 992px) {
-    display: none;
-  }
+  @media screen and (min-width: 992px) { display: none; }
 `;
 
 export const SideMenu = styled.div<{ open: boolean }>`
@@ -142,7 +112,7 @@ export const SideMenu = styled.div<{ open: boolean }>`
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    margin-top: 60px; /* deixa X alinhado com o botão */
+    margin-top: 60px;
     padding-left: 20px;
 
     a {
@@ -152,21 +122,52 @@ export const SideMenu = styled.div<{ open: boolean }>`
       font-weight: 500;
       cursor: pointer;
       transition: 0.3s ease;
-
-      &:hover {
-        color: #2c2c2c;
-      }
+      &:hover { color: #2c2c2c; }
     }
   }
 
-  @media screen and (min-width: 992px) {
-    display: none;
-  }
+  @media screen and (min-width: 992px) { display: none; }
 `;
 
+export const InputsMobile = styled.div `
+display: flex;
+flex-direction: column;
+padding: 10px;
+gap: 10px;
+input{
+  padding: 10px;
+  margin-top: 20px;
+  width: 90%;
+  border-radius:5px;
+  outline: none;
+  font-size: 1rem;
+}
+.search{
+  width: 90%;
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  border: 1px solid black;
+border-radius: 5px;
+}
 
+.cart{
+  width: 90%;
+  background-color: green;
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  border: 1px solid black;
+}
 
+.cart svg{
+  color: white;
+  width: 1.6rem
 
+}
+  
+
+`
 
 export const Inputs = styled.div`
   display: none;
@@ -196,9 +197,7 @@ export const Inputs = styled.div`
     .search svg {
       width: 20px;
       transition: 0.4s ease;
-      &:hover {
-        transform: scale(1.07);
-      }
+      &:hover { transform: scale(1.07); }
     }
 
     button {
@@ -207,10 +206,7 @@ export const Inputs = styled.div`
       background: transparent;
     }
 
-    .cart {
-      position: relative;
-      left: 10px;
-    }
+    .cart { position: relative; left: 10px; }
   }
 
   @media screen and (min-width: 992px) {
@@ -232,19 +228,8 @@ export const Inputs = styled.div`
       padding: 10px;
     }
 
-    .search {
-      position: absolute;
-      right: 55px;
-      top: 10px;
-    }
-
-    .search svg {
-      width: 30px;
-    }
-
-    .cart svg {
-      width: 30px;
-      height: 30px;
-    }
+    .search { position: absolute; right: 55px; top: 10px; }
+    .search svg { width: 30px; }
+    .cart svg { width: 30px; height: 30px; }
   }
 `;

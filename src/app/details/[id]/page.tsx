@@ -7,11 +7,15 @@ import { Minus, Plus, Star } from "lucide-react";
 import { ContainerDetails, DetailsText } from "./page.styled";
 import { CartInputs } from "@/components/Cart/Cart.styled";
 import { CardButton } from "@/components/Cards/Cards.styled";
+import { useCart } from "@/context/context";
 
 export default function ProductPage({ params }: { params: { id: string } }) {
   const { id } = params;
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
+  const [quantidade, setQuantidade] = useState(1);
+
+  const { addToCart } = useCart();
 
   useEffect(() => {
     async function fetchProduct() {
@@ -35,7 +39,6 @@ export default function ProductPage({ params }: { params: { id: string } }) {
   if (!product) return <h2>Produto não encontrado 😕</h2>;
 
   const rating = typeof product.rate === "number" ? product.rate : product.rate?.rate || 0;
-  const count = typeof product.rate === "object" ? product.rate?.count : 0;
   const fullStars = Math.floor(rating);
   const hasHalfStar = rating % 1 >= 0.5;
 
@@ -62,17 +65,24 @@ export default function ProductPage({ params }: { params: { id: string } }) {
         <h3 className="price">R$ {product.price?.toFixed(2)}</h3>
         <p>{product.description}</p>
 
+        {/* Controle de quantidade */}
         <CartInputs>
-          <button className="minus" style={{position:'relative', top:'2px'}}>
+          <button onClick={() => setQuantidade(q => Math.max(q - 1, 1))}>
             <Minus />
           </button>
-          <p className="number">1</p>
-          <button className="plus" style={{position:'relative', top:'2px'}}>
+          <p className="number">{quantidade}</p>
+          <button onClick={() => setQuantidade(q => q + 1)}>
             <Plus />
           </button>
         </CartInputs>
 
-        <CardButton className="add">Adicionar</CardButton>
+        {/* Adicionar ao carrinho */}
+        <CardButton
+          className="add"
+          onClick={() => addToCart({ ...product, quantity: quantidade })}
+        >
+          Adicionar
+        </CardButton>
       </DetailsText>
     </ContainerDetails>
   );

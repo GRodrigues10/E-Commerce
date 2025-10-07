@@ -8,4 +8,5 @@ export interface Product {
   // pode ser número simples OU objeto
   rate?: number | { rate: number; count?: number };
   stock?: number;
+  quantity:number
 }

@@ -12,7 +12,8 @@ import { useCart } from "@/context/context";
 import { formatPrice } from "@/utils/FormatPrice";
 
 function Cart() {
-  const { cart, removeFromCart } = useCart();
+const { cart, removeFromCart, increaseQuantity, decreaseQuantity } = useCart();
+
 
   return (
     <div>
@@ -41,19 +42,27 @@ function Cart() {
                   Entrega 100% gratuita em até 3 dias úteis.
                 </p>
 
-                <h4>R$ {formatPrice(product.price ?? 0)}</h4>
+                <h4>
+                  {formatPrice((product.price ?? 0) * (product.quantity ?? 1))}
+                </h4>
               </CartText>
 
               <CartControls>
                 <Trash2 onClick={() => removeFromCart(product._id)} />
-                
+
                 {/* Inputs de quantidade idênticos ao design original */}
                 <CartInputs>
-                  <button className="minus">
+                  <button
+                    className="minus"
+                    onClick={() => decreaseQuantity(product._id)}
+                  >
                     <Minus />
                   </button>
-                  <p className="number">1</p>
-                  <button className="plus">
+                  <p className="number">{product.quantity ?? 1}</p>
+                  <button
+                    className="plus"
+                    onClick={() => increaseQuantity(product._id)}
+                  >
                     <Plus />
                   </button>
                 </CartInputs>
