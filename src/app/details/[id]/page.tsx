@@ -12,7 +12,7 @@ import { useCart } from "@/context/context";
 import { formatPrice } from "@/utils/FormatPrice";
 
 export default function ProductPage() {
-  const params = useParams(); 
+  const params = useParams();
   const id = params?.id;
 
   const [product, setProduct] = useState<Product | null>(null);
@@ -27,7 +27,9 @@ export default function ProductPage() {
 
     async function fetchProduct() {
       try {
-        const res = await fetch(`http://localhost:4000/products/${id}`);
+        const res = await fetch(
+          `https://e-commerce-api-2u04.onrender.com/products/${id}`
+        );
         if (!res.ok) throw new Error("Produto não encontrado");
         const data: Product = await res.json();
         setProduct(data);
@@ -45,7 +47,8 @@ export default function ProductPage() {
   if (loading) return <h2>Carregando produto...</h2>;
   if (!product) return <h2>Produto não encontrado 😕</h2>;
 
-  const rating = typeof product.rate === "number" ? product.rate : product.rate?.rate || 0;
+  const rating =
+    typeof product.rate === "number" ? product.rate : product.rate?.rate || 0;
   const fullStars = Math.floor(rating);
   const hasHalfStar = rating % 1 >= 0.5;
 
