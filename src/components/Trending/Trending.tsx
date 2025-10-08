@@ -10,14 +10,15 @@ import Cards from "../Cards/Cards";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { fetchTrending } from "@/api/api";
 import { SkeletonCard } from "../SkeletonCard/SkeletonCard";
+import { Product } from "@/types/product";
 
 
-// SkeletonCard para mostrar enquanto carrega
+
 
 const Trending: React.FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const [trendingProducts, setTrendingProducts] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true); // estado de loading
+  const [trendingProducts, setTrendingProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true); 
 
   const scrollCards = (direction: "left" | "right") => {
     if (!containerRef.current) return;
@@ -27,15 +28,15 @@ const Trending: React.FC = () => {
       behavior: "smooth",
     });
 
-    const SkeletonCard: React.FC = () => (
-  <div style={{
-    maxWidth: "372px",
-    height: "500px",
-    backgroundColor: "#e0e0e0",
-    borderRadius: "8px",
-    margin: "0.5rem",
-  }} />
-);
+//     const SkeletonCard: React.FC = () => (
+//   <div style={{
+//     maxWidth: "372px",
+//     height: "500px",
+//     backgroundColor: "#e0e0e0",
+//     borderRadius: "8px",
+//     margin: "0.5rem",
+//   }} />
+// );
 
   };
 
@@ -43,7 +44,7 @@ const Trending: React.FC = () => {
     fetchTrending()
       .then((data) => setTrendingProducts(data))
       .catch((err) => console.error(err))
-      .finally(() => setLoading(false)); // termina o loading
+      .finally(() => setLoading(false));
   }, []);
 
   return (
@@ -61,7 +62,7 @@ const Trending: React.FC = () => {
         <TrendingCardsWrapper ref={containerRef}>
           <TrendingCardsContainer>
             {loading ? (
-              // Mostra 4 skeletons enquanto carrega
+            
               <>
                 <SkeletonCard />
                 <SkeletonCard />
@@ -69,7 +70,7 @@ const Trending: React.FC = () => {
                 <SkeletonCard />
               </>
             ) : (
-              // Passando os produtos para o Cards quando carregou
+             
               <Cards products={trendingProducts} />
             )}
           </TrendingCardsContainer>

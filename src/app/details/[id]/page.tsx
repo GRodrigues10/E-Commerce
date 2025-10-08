@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
 import { Product } from "@/types/product";
 import Image from "next/image";
 import { Minus, Plus, Star } from "lucide-react";
@@ -10,17 +11,20 @@ import { CardButton } from "@/components/Cards/Cards.styled";
 import { useCart } from "@/context/context";
 import { formatPrice } from "@/utils/FormatPrice";
 
-export default function ProductPage({ params }: { params: { id: string } }) {
-  const { id } = params;
+export default function ProductPage() {
+  const params = useParams(); 
+  const id = params?.id;
+
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
   const [quantidade, setQuantidade] = useState(1);
   const [adicionadoId, setAdicionadoId] = useState<string | null>(null);
 
-
   const { addToCart } = useCart();
 
   useEffect(() => {
+    if (!id) return;
+
     async function fetchProduct() {
       try {
         const res = await fetch(`http://localhost:4000/products/${id}`);
@@ -41,8 +45,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
   if (loading) return <h2>Carregando produto...</h2>;
   if (!product) return <h2>Produto não encontrado 😕</h2>;
 
-  const rating =
-    typeof product.rate === "number" ? product.rate : product.rate?.rate || 0;
+  const rating = typeof product.rate === "number" ? product.rate : product.rate?.rate || 0;
   const fullStars = Math.floor(rating);
   const hasHalfStar = rating % 1 >= 0.5;
 
@@ -63,13 +66,12 @@ export default function ProductPage({ params }: { params: { id: string } }) {
             <Star key={i} fill="#55555" />
           ))}
           {hasHalfStar && <Star fill="#ccc" />}
-          <span>({product.stock})</span>
+          <span>({product.stock || 0})</span>
         </div>
 
         <h3 className="price">R$ {formatPrice(product.price || 0)}</h3>
         <p>{product.description}</p>
 
-   
         <CartInputs>
           <button onClick={() => setQuantidade((q) => Math.max(q - 1, 1))}>
             <Minus />
@@ -80,15 +82,13 @@ export default function ProductPage({ params }: { params: { id: string } }) {
           </button>
         </CartInputs>
 
-
         <CardButton
           className="add"
           onClick={() => {
             addToCart({ ...product, quantity: quantidade });
-            setAdicionadoId(product._id); 
-            setTimeout(() => setAdicionadoId(null), 1000); 
+            setAdicionadoId(product._id);
+            setTimeout(() => setAdicionadoId(null), 1000);
           }}
-        
         >
           {adicionadoId === product._id ? "Adicionado!" : "Adicionar"}
         </CardButton>

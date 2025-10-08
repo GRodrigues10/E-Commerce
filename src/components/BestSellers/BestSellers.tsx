@@ -10,14 +10,15 @@ import {
 import Cards from "../Cards/Cards";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { fetchBestSellers } from "@/api/api";
+import { Product } from "@/types/product";
 
 
 const BestSellers: React.FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const [bestSellers, setBestSellers] = useState<any[]>([]);
+  const [bestSellers, setBestSellers] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // Função de scroll
+ 
   const scrollCards = (direction: "left" | "right") => {
     if (!containerRef.current) return;
     const scrollAmount = 300;
@@ -52,7 +53,7 @@ useEffect(() => {
       <h2>Mais Vendidos</h2>
 
       <CarouselContainer>
-        {/* Setas fixas */}
+   
         <ArrowButton $left onClick={() => scrollCards("left")}>
           <ChevronLeft size={32} />
         </ArrowButton>
@@ -60,11 +61,11 @@ useEffect(() => {
           <ChevronRight size={32} />
         </ArrowButton>
 
-        {/* Wrapper que rola */}
+       
         <BestSellersWrapper ref={containerRef}>
           <BestSellersCardsContainer>
             {loading ? (
-              // Mostra 4 skeletons enquanto carrega
+             
               <>
                 <SkeletonCard />
                 <SkeletonCard />

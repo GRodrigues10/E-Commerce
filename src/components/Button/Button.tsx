@@ -1,4 +1,4 @@
-import { Trash, Trash2, Undo2 } from 'lucide-react'
+import {Trash2} from 'lucide-react'
 import React from 'react'
 import { StylesButton } from './Button.styled'
 import { useCart } from '@/context/context'

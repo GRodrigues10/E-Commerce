@@ -13,7 +13,6 @@ import {
 import Link from "next/link";
 import { useCart } from "@/context/context";
 import { formatPrice } from "@/utils/FormatPrice";
-import { AlertCircle } from "lucide-react";
 
 function RequestSummary() {
   const { cart, removeAll } = useCart();

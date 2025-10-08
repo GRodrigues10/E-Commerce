@@ -31,8 +31,8 @@ const Cards: React.FC<CardsProps> = ({ products }) => {
             ? product.rate
             : product.rate?.rate || 0;
 
-        const count =
-          typeof product.rate === "object" ? product.rate?.count : 0;
+        // const count =
+        //   typeof product.rate === "object" ? product.rate?.count : 0;
 
         const fullStars = Math.floor(rating);
         const hasHalfStar = rating % 1 >= 0.5;
