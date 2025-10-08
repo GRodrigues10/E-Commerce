@@ -37,7 +37,6 @@ const Reviews: React.FC = () => {
             text="Produto incrível! Chegou super rápido e bem embalado."
             rating={4.5}
           />
-
           <ReviewsCards
             name="Carlos Souza"
             image="https://randomuser.me/api/portraits/men/75.jpg"
@@ -45,46 +44,41 @@ const Reviews: React.FC = () => {
             rating={3}
           />
           <ReviewsCards
-  name="Fernanda Lima"
-  image="https://randomuser.me/api/portraits/women/44.jpg"
-  text="Excelente qualidade, superou minhas expectativas!"
-  rating={5}
-/>
-
-<ReviewsCards
-  name="João Pedro"
-  image="https://randomuser.me/api/portraits/men/12.jpg"
-  text="Gostei bastante, mas o preço poderia ser mais em conta."
-  rating={3.5}
-/>
-
-<ReviewsCards
-  name="Mariana Silva"
-  image="https://randomuser.me/api/portraits/women/68.jpg"
-  text="Chegou antes do prazo e muito bem embalado. Recomendo!"
-  rating={4}
-/>
-
-<ReviewsCards
-  name="Rafael Gomes"
-  image="https://randomuser.me/api/portraits/men/28.jpg"
-  text="Cumpre o que promete, mas achei frágil em algumas partes."
-  rating={2.5}
-/>
-
-<ReviewsCards
-  name="Patrícia Oliveira"
-  image="https://randomuser.me/api/portraits/women/21.jpg"
-  text="Atendimento ótimo e produto de qualidade."
-  rating={4.5}
-/>
-
-<ReviewsCards
-  name="André Santos"
-  image="https://randomuser.me/api/portraits/men/50.jpg"
-  text="Valeu a pena a compra, utilizo todos os dias!"
-  rating={5}
-/>
+            name="Fernanda Lima"
+            image="https://randomuser.me/api/portraits/women/44.jpg"
+            text="Excelente qualidade, superou minhas expectativas!"
+            rating={5}
+          />
+          <ReviewsCards
+            name="João Pedro"
+            image="https://randomuser.me/api/portraits/men/12.jpg"
+            text="Gostei bastante, mas o preço poderia ser mais em conta."
+            rating={3.5}
+          />
+          <ReviewsCards
+            name="Mariana Silva"
+            image="https://randomuser.me/api/portraits/women/68.jpg"
+            text="Chegou antes do prazo e muito bem embalado. Recomendo!"
+            rating={4}
+          />
+          <ReviewsCards
+            name="Rafael Gomes"
+            image="https://randomuser.me/api/portraits/men/28.jpg"
+            text="Cumpre o que promete, mas achei frágil em algumas partes."
+            rating={2.5}
+          />
+          <ReviewsCards
+            name="Patrícia Oliveira"
+            image="https://randomuser.me/api/portraits/women/21.jpg"
+            text="Atendimento ótimo e produto de qualidade."
+            rating={4.5}
+          />
+          <ReviewsCards
+            name="André Santos"
+            image="https://randomuser.me/api/portraits/men/50.jpg"
+            text="Valeu a pena a compra, utilizo todos os dias!"
+            rating={5}
+          />
         </ContainerCards>
 
         <ArrowButton onClick={() => scrollCards("right")}>

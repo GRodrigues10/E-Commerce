@@ -22,6 +22,7 @@ function ReviewsCards({ name, image, text, rating }: ReviewsCardsProps) {
         alt={`Foto de ${name}`}
         width={150}
         height={150}
+        unoptimized
       />
       <ReviewCardText>
         <h3>{name}</h3>
