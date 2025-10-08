@@ -9,11 +9,33 @@ export const ContainerSearch = styled.section`
   display: flex;
   align-items: center;
   flex-direction: column;
-
   h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
+    margin-bottom: 10px;
     margin-bottom: 40px;
-    width: 940px;
+    text-align: center;
+  }
+  margin-bottom: 20px;
+  @media screen and (min-width: 768px) {
+    h1 {
+      font-size: 2.2rem;
+    }
+    margin-bottom: 0px;
+  }
+  @media screen and (min-width: 1200px) {
+    h1 {
+      text-align: start;
+      width: 940px;
+      font-size: 2.5rem;
+    }
+  }
+
+    @media screen and (min-width: 1440px) {
+    h1 {
+      text-align: start;
+      width: 1126px;
+      font-size: 2.8rem;
+    }
   }
 `;
 
@@ -24,11 +46,13 @@ export const ResultsSearch = styled.div`
   justify-content: center;
   gap: 30px;
   width: 100%;
+  margin-bottom: 20px;
 
- .loading{
+  .loading {
     height: 60vh;
     display: flex;
     align-items: center;
     font-size: 2rem;
- }
+    text-align: center;
+  }
 `;

@@ -13,12 +13,15 @@ import {
 import Link from "next/link";
 import { useCart } from "@/context/context";
 import { formatPrice } from "@/utils/FormatPrice";
+import { AlertCircle } from "lucide-react";
 
 function RequestSummary() {
-  const { cart } = useCart();
+  const { cart, removeAll } = useCart();
   const [cupom, setCupom] = useState("");
   const [desconto, setDesconto] = useState(0);
   const [erroCupom, setErroCupom] = useState("");
+  const [compraRealizada, setCompraRealizada] = useState(false);
+  const [erroCarrinho, setErroCarrinho] = useState(false);
 
   const subtotal = cart.reduce(
     (p, n) => p + (n.price || 0) * (n.quantity || 1),
@@ -27,9 +30,9 @@ function RequestSummary() {
   const total = subtotal - desconto;
 
   const checkCupom = () => {
-    if (cupom.toLowerCase() === "gabriel") {
-      setDesconto(subtotal / 2); // aplica 50% de desconto
-      setErroCupom(""); // limpa mensagem de erro
+    if (cupom.toLowerCase() === "desconto") {
+      setDesconto(subtotal / 2);
+      setErroCupom("");
     } else {
       setDesconto(0);
       setErroCupom("Cupom inválido!");
@@ -84,7 +87,34 @@ function RequestSummary() {
             </p>
           )}
 
-          <Checkout>Comprar Agora</Checkout>
+          <Checkout
+            onClick={() => {
+              if (subtotal === 0) {
+                setErroCarrinho(true);
+                setTimeout(() => setErroCarrinho(false), 2000);
+                return;
+              }
+
+              setCompraRealizada(true);
+              setTimeout(() => setCompraRealizada(false), 2000);
+
+              removeAll();
+            }}
+          >
+            Comprar Agora
+          </Checkout>
+
+          {erroCarrinho && (
+            <span style={{ color: "red", marginTop: "10px" }}>
+              ⚠️ O carrinho está vazio!
+            </span>
+          )}
+
+          {compraRealizada && (
+            <span style={{ color: "green", marginTop: "10px" }}>
+              🎉 Compra realizada com sucesso!
+            </span>
+          )}
 
           <Link href="/">
             <Checkout2>Continuar Comprando</Checkout2>

@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { useEffect, useState } from "react";
 import { Product } from "@/types/product";
@@ -8,12 +8,15 @@ import { ContainerDetails, DetailsText } from "./page.styled";
 import { CartInputs } from "@/components/Cart/Cart.styled";
 import { CardButton } from "@/components/Cards/Cards.styled";
 import { useCart } from "@/context/context";
+import { formatPrice } from "@/utils/FormatPrice";
 
 export default function ProductPage({ params }: { params: { id: string } }) {
   const { id } = params;
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
   const [quantidade, setQuantidade] = useState(1);
+  const [adicionadoId, setAdicionadoId] = useState<string | null>(null);
+
 
   const { addToCart } = useCart();
 
@@ -38,7 +41,8 @@ export default function ProductPage({ params }: { params: { id: string } }) {
   if (loading) return <h2>Carregando produto...</h2>;
   if (!product) return <h2>Produto não encontrado 😕</h2>;
 
-  const rating = typeof product.rate === "number" ? product.rate : product.rate?.rate || 0;
+  const rating =
+    typeof product.rate === "number" ? product.rate : product.rate?.rate || 0;
   const fullStars = Math.floor(rating);
   const hasHalfStar = rating % 1 >= 0.5;
 
@@ -62,26 +66,31 @@ export default function ProductPage({ params }: { params: { id: string } }) {
           <span>({product.stock})</span>
         </div>
 
-        <h3 className="price">R$ {product.price?.toFixed(2)}</h3>
+        <h3 className="price">R$ {formatPrice(product.price || 0)}</h3>
         <p>{product.description}</p>
 
-        {/* Controle de quantidade */}
+   
         <CartInputs>
-          <button onClick={() => setQuantidade(q => Math.max(q - 1, 1))}>
+          <button onClick={() => setQuantidade((q) => Math.max(q - 1, 1))}>
             <Minus />
           </button>
           <p className="number">{quantidade}</p>
-          <button onClick={() => setQuantidade(q => q + 1)}>
+          <button onClick={() => setQuantidade((q) => q + 1)}>
             <Plus />
           </button>
         </CartInputs>
 
-        {/* Adicionar ao carrinho */}
+
         <CardButton
           className="add"
-          onClick={() => addToCart({ ...product, quantity: quantidade })}
+          onClick={() => {
+            addToCart({ ...product, quantity: quantidade });
+            setAdicionadoId(product._id); 
+            setTimeout(() => setAdicionadoId(null), 1000); 
+          }}
+        
         >
-          Adicionar
+          {adicionadoId === product._id ? "Adicionado!" : "Adicionar"}
         </CardButton>
       </DetailsText>
     </ContainerDetails>

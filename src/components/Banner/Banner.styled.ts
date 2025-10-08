@@ -10,7 +10,17 @@ export const BannerContainer = styled.section`
   justify-content: space-evenly;
   flex-direction: column;
 
+  @media screen and (min-width: 530px){
+      h1{
+        padding-top: 20px;
+      }
+  }
+
   @media screen and (min-width: 768px) {
+    h1{
+        padding-top: 0px;
+
+    }
     flex-direction: row;
   }
 

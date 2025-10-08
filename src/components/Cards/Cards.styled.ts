@@ -138,19 +138,19 @@ export const CardText = styled.div`
   }
 `;
 
-export const CardButton = styled.button`
+export const CardButton = styled.button<{ added?: boolean }>`
   width: 90%;
   padding: 10px;
   font-size: 1rem;
   cursor: pointer;
-  background-color: #333333;
   border-radius: 8px;
   border: none;
   color: white;
   font-size: 1.1rem;
   transition: 0.4s ease;
+  background-color: ${({ added }) => (added ? "#181717" : "#333333")};
 
   &:hover {
-    background-color: #222222;
+    background-color: ${({ added }) => (added ? "#181717" : "#222222")};
   }
 `;

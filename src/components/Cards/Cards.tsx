@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import {
   CardButton,
   CardCategory,
@@ -11,7 +12,6 @@ import {
 import Image from "next/image";
 import { Star } from "lucide-react";
 import { formatPrice } from "@/utils/FormatPrice";
-import Link from "next/link";
 import { Product } from "@/types/product";
 import { useCart } from "@/context/context";
 
@@ -20,7 +20,9 @@ interface CardsProps {
 }
 
 const Cards: React.FC<CardsProps> = ({ products }) => {
+  const [addedProductId, setAddedProductId] = useState<string | null>(null);
   const { addToCart } = useCart();
+
   return (
     <>
       {products.map((product) => {
@@ -39,7 +41,6 @@ const Cards: React.FC<CardsProps> = ({ products }) => {
           <CardContainer
             key={product._id}
             onClick={() => {
-             
               window.location.href = `/details/${product._id}`;
             }}
           >
@@ -49,15 +50,18 @@ const Cards: React.FC<CardsProps> = ({ products }) => {
               width={260}
               height={260}
             />
+
             <CardCategory>
               <p>{product.category[0]}</p>
             </CardCategory>
+
             <CardText>
               <h3>
                 {product.name?.length && product.name.length > 20
                   ? product.name.slice(0, 20) + "..."
                   : product.name || "Produto sem nome"}
               </h3>
+
               <ContainerInfo>
                 <span className="price">
                   R${" "}
@@ -65,6 +69,7 @@ const Cards: React.FC<CardsProps> = ({ products }) => {
                     ? formatPrice(product.price)
                     : "0.00"}
                 </span>
+
                 <ContainerStars>
                   {Array.from({ length: fullStars }).map((_, i) => (
                     <Star
@@ -98,6 +103,7 @@ const Cards: React.FC<CardsProps> = ({ products }) => {
                   <span>({product.stock || 0})</span>
                 </ContainerStars>
               </ContainerInfo>
+
               <p>
                 {product.description?.length && product.description.length > 60
                   ? product.description.slice(0, 60) + "..."
@@ -105,15 +111,15 @@ const Cards: React.FC<CardsProps> = ({ products }) => {
               </p>
             </CardText>
 
-            
             <CardButton
               onClick={(e) => {
                 e.stopPropagation();
                 addToCart(product);
-                console.log("Produto adicionado:", product.name);
+                setAddedProductId(product._id);
+                setTimeout(() => setAddedProductId(null), 1000);
               }}
             >
-              Adicionar
+              {addedProductId === product._id ? "Adicionado!" : "Adicionar"}
             </CardButton>
           </CardContainer>
         );

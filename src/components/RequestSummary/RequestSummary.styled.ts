@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const RequestSummaryContainer = styled.div`
   background-color: white;
   min-height: 650px;
+  min-width: 350px;
   padding: 20px;
   border-radius: 10px;
   max-width: 350px;
