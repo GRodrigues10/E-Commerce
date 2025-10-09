@@ -25,7 +25,7 @@ export const ContainerSearch = styled.section`
   @media screen and (min-width: 1200px) {
     h1 {
       text-align: start;
-      width: 940px;
+    width: 1160px;
       font-size: 2.5rem;
     }
   }
@@ -33,7 +33,7 @@ export const ContainerSearch = styled.section`
     @media screen and (min-width: 1440px) {
     h1 {
       text-align: start;
-      width: 1126px;
+      width: 1160px;
       font-size: 2.8rem;
     }
   }
