@@ -40,8 +40,8 @@ const Reviews: React.FC = () => {
           <ReviewsCards
             name="Carlos Souza"
             image="https://randomuser.me/api/portraits/men/75.jpg"
-            text="Muito bom, mas demorou um pouco pra chegar."
-            rating={3}
+            text="Muito bom, chegou bem antes do prazo!"
+            rating={4}
           />
           <ReviewsCards
             name="Fernanda Lima"
@@ -52,7 +52,7 @@ const Reviews: React.FC = () => {
           <ReviewsCards
             name="João Pedro"
             image="https://randomuser.me/api/portraits/men/12.jpg"
-            text="Gostei bastante, mas o preço poderia ser mais em conta."
+            text="Gostei bastante, preço muito justo."
             rating={3.5}
           />
           <ReviewsCards
@@ -64,8 +64,8 @@ const Reviews: React.FC = () => {
           <ReviewsCards
             name="Rafael Gomes"
             image="https://randomuser.me/api/portraits/men/28.jpg"
-            text="Cumpre o que promete, mas achei frágil em algumas partes."
-            rating={2.5}
+            text="Cumpre o que promete, bem legal!"
+            rating={3.5}
           />
           <ReviewsCards
             name="Patrícia Oliveira"
