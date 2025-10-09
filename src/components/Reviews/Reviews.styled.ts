@@ -10,6 +10,7 @@ export const ContainerReviews = styled.section`
   width: 100%;
   height: 100vh;
   display: flex;
+  background-color: white;
   flex-direction: column;
   align-items: center;
   justify-content: center;

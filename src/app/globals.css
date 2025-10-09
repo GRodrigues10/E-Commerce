@@ -6,6 +6,10 @@
     font-family: Helvetica, sans-serif;
 }
 
+body{
+      background-color: #e8e3dc;
+}
+
 html{
     scroll-behavior: smooth;
 }
