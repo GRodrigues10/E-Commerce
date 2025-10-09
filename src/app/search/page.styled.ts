@@ -27,13 +27,14 @@ export const ContainerSearch = styled.section`
       text-align: start;
     width: 1160px;
       font-size: 2.5rem;
+      margin-bottom: 60px;
     }
   }
 
     @media screen and (min-width: 1440px) {
     h1 {
       text-align: start;
-      width: 1160px;
+      width: 1165px;
       font-size: 2.8rem;
     }
   }
@@ -46,7 +47,8 @@ export const ResultsSearch = styled.div`
   justify-content: center;
   gap: 30px;
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 60px;
+  
 
   .loading {
     height: 60vh;
