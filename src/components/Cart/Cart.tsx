@@ -43,7 +43,7 @@ const { cart, removeFromCart, increaseQuantity, decreaseQuantity } = useCart();
                 </p>
 
                 <h4>
-                  {formatPrice((product.price ?? 0) * (product.quantity ?? 1))}
+                 R$ {formatPrice((product.price ?? 0) * (product.quantity ?? 1))}
                 </h4>
               </CartText>
 

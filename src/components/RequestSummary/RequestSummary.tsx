@@ -46,7 +46,7 @@ function RequestSummary() {
 
           <ProductsSubtotal>
             <p>Subtotal:</p>
-            <p>{formatPrice(subtotal)}</p>
+            <p>R$ {formatPrice(subtotal)}</p>
           </ProductsSubtotal>
 
           {desconto > 0 && (
@@ -66,7 +66,7 @@ function RequestSummary() {
               <strong>Total:</strong>
             </p>
             <p>
-              <strong>{formatPrice(total)}</strong>
+              <strong>R$ {formatPrice(total)}</strong>
             </p>
           </Total>
 

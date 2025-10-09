@@ -24,6 +24,8 @@ export const ContainerSearch = styled.section`
   }
   @media screen and (min-width: 1200px) {
     h1 {
+      position: relative;
+      top: 5px;
       text-align: start;
     width: 1160px;
       font-size: 2.5rem;
