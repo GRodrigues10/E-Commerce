@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛒 E-commerce Full Stack
 
-## Getting Started
+Acabei de concluir um projeto de e-commerce, desenvolvendo tanto o front-end quanto o back-end com o objetivo de aprimorar minhas habilidades em desenvolvimento **Full Stack**.
 
-First, run the development server:
+## 🚀 Tecnologias Utilizadas
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Front-end
+- **Next.js**
+- **TypeScript**
+- **Styled Components**
+- **localStorage** para persistência de dados no carrinho
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Back-end
+- **Node.js**
+- **Express**
+- **Mongoose**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Banco de Dados
+- **MongoDB**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ⚙️ Funcionalidades Principais
+- 🛍️ **Carrinho de compras** com persistência de dados usando **localStorage**
+- ⭐ **Seções** "Mais Vendidos" e "Em Alta"
+- 🔍 **Busca de produtos** totalmente funcional
+- 📄 **Visualização detalhada** de cada produto
+- 🔗 **Integração completa** entre front-end e back-end
 
-## Learn More
+## 💡 Aprendizados
 
-To learn more about Next.js, take a look at the following resources:
+Esse projeto foi uma excelente oportunidade para praticar a integração entre front-end e back-end, além de aprimorar a organização do código, o design da interface e a estrutura geral de uma aplicação **Full Stack** moderna.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🌐 Link do Projeto
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+🔗 [Acessar o projeto](#)
 
-## Deploy on Vercel
+## Imagens do Projeto
+### Tela Inicial
+<img width="1024" height="768" alt="image" src="https://github.com/user-attachments/assets/79a032ea-1d5b-4d48-81df-4600f6055bf9" />
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Tela de Seções
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+<img width="1024" height="768" alt="image" src="https://github.com/user-attachments/assets/3c79cc03-f7c6-48aa-b8c3-797fbe0800d4" />
+
+---
+
+<img width="1024" height="768" alt="image" src="https://github.com/user-attachments/assets/6a8b0d4c-f6ee-432f-b0df-463a2ab052cf" />
+
+---
+
+<img width="1024" height="768" alt="image" src="https://github.com/user-attachments/assets/6cabca3a-5ec7-4060-8965-0c38c1255088" />
+
+
+
+
+### Tela de Busca
+<img width="1015" height="764" alt="image" src="https://github.com/user-attachments/assets/18a2a1e6-d41c-4041-93d4-347667733491" />
+
+
+### Tela de Detalhes
+
+<img width="1024" height="768" alt="image" src="https://github.com/user-attachments/assets/54a6a729-6432-4d5b-acd8-6fe7ad3b741e" />
+
+
+
+### Tela de Carrinho de Compras
+
+<img width="1020" height="768" alt="image" src="https://github.com/user-attachments/assets/478d9af6-c46c-49f5-a975-c5fc5f873192" />
+
+
+
+
+
+
+
+
+
