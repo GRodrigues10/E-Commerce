@@ -31,7 +31,7 @@ Esse projeto foi uma excelente oportunidade para praticar a integração entre f
 
 ## 🌐 Link do Projeto
 
-🔗 [Acessar o projeto](#)
+🔗 https://e-commerce-tan-gamma-27.vercel.app/
 
 ## Imagens do Projeto
 ### Tela Inicial
