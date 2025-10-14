@@ -1,6 +1,6 @@
 # 🛒 E-commerce Full Stack
 
-Acabei de concluir um projeto de e-commerce, desenvolvendo tanto o front-end quanto o back-end com o objetivo de aprimorar minhas habilidades em desenvolvimento **Full Stack**.
+E-commerce **Full Stack** completo, desenvolvido com listagem e busca de produtos em tempo real, exibição detalhada de cada item, sistema de carrinho de compras dinâmico e integração com backend para gerenciamento de dados e persistência de informações.
 
 ## 🚀 Tecnologias Utilizadas
 
