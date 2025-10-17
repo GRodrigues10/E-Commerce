@@ -1,15 +1,17 @@
-"use client";
+'use client';
 
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { Product } from "@/types/product";
 import Image from "next/image";
 import { Minus, Plus, Star } from "lucide-react";
+import { useCart } from "@/context/context";
+import { formatPrice } from "@/utils/FormatPrice";
+
 import { ContainerDetails, DetailsText } from "./page.styled";
 import { CartInputs } from "@/components/Cart/Cart.styled";
 import { CardButton } from "@/components/Cards/Cards.styled";
-import { useCart } from "@/context/context";
-import { formatPrice } from "@/utils/FormatPrice";
+import { SkeletonDetailsCard } from "@/components/SkeletonDetailsCard/SkeletonDetailsCard";
 
 export default function ProductPage() {
   const params = useParams();
@@ -44,7 +46,7 @@ export default function ProductPage() {
     fetchProduct();
   }, [id]);
 
-  if (loading) return <h2>Carregando produto...</h2>;
+  if (loading) return <SkeletonDetailsCard />;
   if (!product) return <h2>Produto não encontrado 😕</h2>;
 
   const rating =
@@ -66,7 +68,7 @@ export default function ProductPage() {
 
         <div className="stars">
           {Array.from({ length: fullStars }).map((_, i) => (
-            <Star key={i} fill="#55555" />
+            <Star key={i} fill="#555" />
           ))}
           {hasHalfStar && <Star fill="#ccc" />}
           <span>({product.stock || 0})</span>
