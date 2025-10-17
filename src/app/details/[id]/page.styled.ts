@@ -1,7 +1,7 @@
 "use client";
 import styled from "styled-components";
 
-/* ---------- PRODUCT DETAILS ---------- */
+
 export const ContainerDetails = styled.section`
   width: 100%;
   min-height: 100vh;
@@ -115,7 +115,7 @@ export const DetailsText = styled.div`
   }
 `;
 
-/* ---------- SKELETON ---------- */
+
 export const SkeletonContainer = styled.div`
   display: flex;
   align-items: center;

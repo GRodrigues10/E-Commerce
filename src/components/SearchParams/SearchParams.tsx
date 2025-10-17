@@ -1,18 +1,18 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import Cards from '@/components/Cards/Cards'
-import { SkeletonCard } from '@/components/SkeletonCard/SkeletonCard'
 import { Product } from '@/types/product'
-import { ContainerSearch, ResultsSearch } from '@/app/search/page.styled'
+import { ContainerSearch, ResultsSearch, SkeletonCardStyled } from '@/app/search/page.styled'
+
 
 export default function SearchPage() {
   const [query, setQuery] = useState('')
   const [products, setProducts] = useState<Product[]>([])
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false) // começa como false
 
   const fetchProducts = (q: string) => {
     if (!q) return
-    setLoading(true)
+    setLoading(true) // Skeleton aparece imediatamente
     fetch(`https://e-commerce-api-2u04.onrender.com/products?q=${q}`)
       .then(res => res.json())
       .then((data: Product[]) => {
@@ -22,22 +22,18 @@ export default function SearchPage() {
         setProducts(filtered)
       })
       .catch(console.error)
-      .finally(() => setLoading(false))
+      .finally(() => setLoading(false)) // Skeleton some quando termina
   }
 
+  // Detecta query na URL
   useEffect(() => {
-   
-    const interval = setInterval(() => {
-      const urlParams = new URLSearchParams(window.location.search)
-      const q = urlParams.get('q') || ''
-      if (q !== query) {
-        setQuery(q)
-        fetchProducts(q)
-      }
-    }, 100) 
-
-    return () => clearInterval(interval)
-  }, [query])
+    const urlParams = new URLSearchParams(window.location.search)
+    const q = urlParams.get('q') || ''
+    if (q) {
+      setQuery(q)
+      fetchProducts(q)
+    }
+  }, [window.location.search])
 
   const skeletonCount = 6
 
@@ -47,7 +43,11 @@ export default function SearchPage() {
       <ResultsSearch>
         {loading
           ? Array.from({ length: skeletonCount }).map((_, idx) => (
-              <SkeletonCard key={idx} />
+              <SkeletonCardStyled key={idx}>
+                <div className="image" />
+                <div className="text" />
+                <div className="text-short" />
+              </SkeletonCardStyled>
             ))
           : products.length > 0
           ? <Cards products={products} />
