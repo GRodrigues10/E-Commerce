@@ -35,7 +35,7 @@ export default function SearchPage() {
     }
   }, [window.location.search])
 
-  const skeletonCount = 6
+  const skeletonCount = 3
 
   return (
     <ContainerSearch>

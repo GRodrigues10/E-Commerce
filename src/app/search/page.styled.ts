@@ -69,6 +69,7 @@ const shimmer = keyframes`
 
 // SkeletonCard com fundo branco e efeito de shimmer
 export const SkeletonCardStyled = styled.div`
+overflow: hidden;
   width: 100%;
   background-color: #fff;
   border-radius: 10px;
