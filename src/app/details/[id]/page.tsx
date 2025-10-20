@@ -30,7 +30,7 @@ export default function ProductPage() {
     async function fetchProduct() {
       try {
         const res = await fetch(
-          `https://e-commerce-api-2u04.onrender.com/products/${id}`
+          `https://e-commerce-api-58n9.onrender.com/products/${id}`
         );
         if (!res.ok) throw new Error("Produto não encontrado");
         const data: Product = await res.json();

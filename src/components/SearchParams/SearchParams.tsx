@@ -13,7 +13,7 @@ export default function SearchPage() {
   const fetchProducts = (q: string) => {
     if (!q) return
     setLoading(true) // Skeleton aparece imediatamente
-    fetch(`https://e-commerce-api-2u04.onrender.com/products?q=${q}`)
+    fetch(`https://e-commerce-api-58n9.onrender.com/products?q=${q}`)
       .then(res => res.json())
       .then((data: Product[]) => {
         const filtered = data.filter(

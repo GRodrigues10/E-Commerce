@@ -1,6 +1,6 @@
 import { Product } from "@/types/product";
 
-const API_URL = "https://e-commerce-api-2u04.onrender.com/products"; 
+const API_URL = "https://e-commerce-api-58n9.onrender.com/products"; 
 
 export async function fetchProducts(): Promise<Product[]> {
   const res = await fetch(API_URL); 
