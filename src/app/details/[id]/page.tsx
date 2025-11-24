@@ -28,7 +28,7 @@ export default function ProductPage() {
     if (!id) return;
 
     async function fetchProduct() {
-      try {
+      try {  
         const res = await fetch(
           `https://e-commerce-api-58n9.onrender.com/products/${id}`
         );
