@@ -1,6 +1,6 @@
 # 🛒 E-commerce Full Stack
 
-E-commerce **Full Stack** completo, desenvolvido com listagem e busca de produtos em tempo real, exibição detalhada de cada item, sistema de carrinho de compras dinâmico e integração com backend para gerenciamento de dados e persistência de informações.
+E-commerce Full Stack completo, com listagem e busca de produtos em tempo real, exibição detalhada de cada item, carrinho de compras dinâmico e integração com o backend para gerenciamento e persistência de dados.
 
 ## 🚀 Tecnologias Utilizadas
 
